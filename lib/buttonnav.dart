@@ -1,8 +1,7 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:hello_world/home.dart';
-import 'package:hello_world/notification.dart';
 import 'package:hello_world/profile.dart';
 
 class bnav extends StatefulWidget {
@@ -15,7 +14,7 @@ class bnav extends StatefulWidget {
 class _bnavState extends State<bnav> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOption = <Widget>[
-    Myhome(),
+    MyHome(),
     Profile(),
   ];
 
@@ -34,7 +33,7 @@ class _bnavState extends State<bnav> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.red,
+        selectedItemColor: Colors.blue,
         onTap: _ontaped,
       ),
       body: Center(
