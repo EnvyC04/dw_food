@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -25,8 +27,18 @@ class _MyHomeState extends State<MyHome> {
         future: _fetchDataApi(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            //jika snapshot memiliki data
             return ListView.builder(
-              itemBuilder: itemBuilder,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(snapshot.data![index]['judul']),
+                );
+              },
+              itemCount: snapshot.data!.length,
+            ); //memunculkan data
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
             );
           }
         },
